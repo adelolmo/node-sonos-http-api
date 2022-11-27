@@ -1,0 +1,7 @@
+server.js /opt/sonosapi
+settings.js /opt/sonosapi
+package.json /opt/sonosapi
+/node_modules /opt/sonosapi/
+/lib /opt/sonosapi/
+/presets /opt/sonosapi/
+/static /opt/sonosapi/

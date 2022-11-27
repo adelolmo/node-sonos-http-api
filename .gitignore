@@ -22,3 +22,10 @@ obj/
 .DS_Store
 yarn.lock
 npm-debug.log
+
+# Debian
+debian/*.debhelper*
+debian/*.substvars
+debian/.debhelper
+debian/sonosapi
+debian/files

@@ -1,0 +1,18 @@
+[Unit]
+Description=A simple http based API for controlling your Sonos system.
+After=network.target
+
+[Service]
+Type=simple
+#EnvironmentFile=/etc/sonosapi.conf
+Environment="NODE_PATH=/opt/sonosapi/node_modules"
+#Environment="SUPPRESS_NO_CONFIG_WARNING=1"
+#Environment="DEBUG=rest980:*"
+WorkingDirectory=/opt/sonosapi
+ExecStart=/usr/bin/node /opt/sonosapi/server.js
+SyslogIdentifier=sonosapi
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
