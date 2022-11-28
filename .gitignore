@@ -27,5 +27,5 @@ npm-debug.log
 debian/*.debhelper*
 debian/*.substvars
 debian/.debhelper
-debian/sonosapi
+debian/sonoshttpapi
 debian/files

@@ -1,4 +1,4 @@
-sonosapi (1.4.3~ado1) unstable; urgency=medium
+sonoshttpapi (1.4.3~ado1) unstable; urgency=medium
 
   [ Andoni ]
   * Initial package for upstream version 1.4.3

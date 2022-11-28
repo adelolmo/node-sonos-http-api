@@ -1,7 +1,7 @@
 #!/usr/bin/make -f
 
 export DH_OPTIONS
-DESTDIR=debian/sonosapi
+DESTDIR=debian/sonoshttpapi
 
 %:
 	dh $@
@@ -11,4 +11,5 @@ build:
 
 override_dh_install:
 	dh_install
-	sed -i "s|path.resolve(__dirname, 'settings.json')|path.resolve('/etc/opt/sonosapi/', 'settings.json')|g" $(DESTDIR)/opt/sonosapi/settings.js
+	sed -i "s|path.resolve(__dirname, 'settings.json')|path.resolve('/etc/opt/sonoshttpapi/', 'settings.json')|g" $(DESTDIR)/opt/sonoshttpapi/settings.js
+

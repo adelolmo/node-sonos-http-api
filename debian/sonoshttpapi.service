@@ -4,13 +4,13 @@ After=network.target
 
 [Service]
 Type=simple
-#EnvironmentFile=/etc/sonosapi.conf
-Environment="NODE_PATH=/opt/sonosapi/node_modules"
+#EnvironmentFile=/etc/sonoshttpapi.conf
+Environment="NODE_PATH=/opt/sonoshttpapi/node_modules"
 #Environment="SUPPRESS_NO_CONFIG_WARNING=1"
 #Environment="DEBUG=rest980:*"
-WorkingDirectory=/opt/sonosapi
-ExecStart=/usr/bin/node /opt/sonosapi/server.js
-SyslogIdentifier=sonosapi
+WorkingDirectory=/opt/sonoshttpapi
+ExecStart=/usr/bin/node /opt/sonoshttpapi/server.js
+SyslogIdentifier=sonoshttpapi
 Restart=on-failure
 RestartSec=5
 

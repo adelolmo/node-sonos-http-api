@@ -1,0 +1,7 @@
+server.js /opt/sonoshttpapi
+settings.js /opt/sonoshttpapi
+package.json /opt/sonoshttpapi
+/node_modules /opt/sonoshttpapi/
+/lib /opt/sonoshttpapi/
+/presets /opt/sonoshttpapi/
+/static /opt/sonoshttpapi/
