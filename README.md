@@ -22,6 +22,19 @@ A simple http based API for controlling your Sonos system.
 
 There is a simple sandbox at /docs (incomplete atm)
 
+Debian package
+--------------
+
+To build the package:
+```bash
+$ dpkg-buildpackage -us -uc -b
+```
+
+And to install it:
+```bash
+# dpkg -i sonoshttpapi_1.4.3~ado1_all.deb
+```
+
 USAGE
 -----
 
