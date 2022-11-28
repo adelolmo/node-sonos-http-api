@@ -2,11 +2,11 @@ Source: sonoshttpapi
 Section: net
 Priority: optional
 Maintainer: Andoni del Olmo <andoni.delolmo@gmail.com>
-Build-Depends: debhelper (>= 9), nodejs (>= 4.0.0), npm (>= 8.0.0), jq
+Build-Depends: debhelper (>= 9), nodejs (>= 6.0.0), npm (>= 8.0.0), jq
 Standards-Version: 3.9.4
 Homepage: https://github.com/adelolmo/node-sonos-http-api
 
 Package: sonoshttpapi
 Architecture: all
-Depends: nodejs (>= 4.0.0)
+Depends: nodejs (>= 6.0.0)
 Description: A simple http based API for controlling your Sonos system.
