@@ -23,20 +23,27 @@ build:
 
 override_dh_install:
 	dh_install
+
 	# Read setting.json from /etc dir
 	sed -i "s|__dirname, 'settings.json'|'$(CONFIG_DIR)', 'settings.json'|g" \
 	$(DESTDIR)/opt/sonoshttpapi/settings.js
-	# Create TTS directory in /var
+
+	# Use TTS directory in /var
 	sed -i "s|settings.webroot + '/tts/'|'$(VAR_DIR)/tts/'|g" \
 	$(DESTDIR)/opt/sonoshttpapi/settings.js
+	sed -i "s|settings.webroot, 'tts'|'$(VAR_DIR)/tts/'|g;s|globalSettings.webroot, 'tts'|'$(VAR_DIR)/tts/'|g" \
+	$(DESTDIR)/opt/sonoshttpapi/lib/tts-providers/*.js
+	sed -i "s|settings.webroot, 'tts'|'$(VAR_DIR)/tts/'|g" \
+	$(DESTDIR)/opt/sonoshttpapi/lib/tts-providers/default/*.js
+
 	# Generate settings.json
 	jq --null-input \
 	--arg ip "$(IP)" \
 	--arg port $(PORT) \
 	--arg securePort $(SECURE_PORT) \
-	--arg cache "$(CACHE_DIR)" \
+	--arg cacheDir "$(CACHE_DIR)" \
 	--arg webroot "$(WEBROOT_DIR)" \
 	--arg presetDir "$(PRESET_DIR)" \
-	'{"ip": $$ip, "port": $$port, "securePort": $$securePort, "cache": $$cache, "webroot": $$webroot, "presetDir": $$presetDir}' \
+	'{"ip": $$ip, "port": $$port, "securePort": $$securePort, "cacheDir": $$cacheDir, "webroot": $$webroot, "presetDir": $$presetDir}' \
 	> $(DESTDIR)$(CONFIG_DIR)/settings.json
 
