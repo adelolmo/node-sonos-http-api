@@ -47,3 +47,6 @@ override_dh_install:
 	'{"ip": $$ip, "port": $$port, "securePort": $$securePort, "cacheDir": $$cacheDir, "webroot": $$webroot, "presetDir": $$presetDir}' \
 	> $(DESTDIR)$(CONFIG_DIR)/settings.json
 
+	# Move clips directory to /var
+	mv $(DESTDIR)$(WEBROOT_DIR)/clips $(DESTDIR)$(VAR_DIR)
+

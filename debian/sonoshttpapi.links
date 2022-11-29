@@ -1,1 +1,2 @@
 /var/opt/sonoshttpapi/tts/ /opt/sonoshttpapi/static/tts
+/var/opt/sonoshttpapi/clips/ /opt/sonoshttpapi/static/clips
