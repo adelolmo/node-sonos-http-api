@@ -1,0 +1,14 @@
+#!/usr/bin/env sh
+
+. /etc/opt/sonoshttpapi/sonoshttpapi.conf
+
+# Generate settings.json
+jq --null-input \
+--arg ip "${IP}" \
+--arg port ${PORT} \
+--arg securePort ${SECURE_PORT} \
+--arg cacheDir "${CACHE_DIR}" \
+--arg webroot "${WEBROOT_DIR}" \
+--arg presetDir "${PRESET_DIR}" \
+'{"ip": $ip, "port": $port, "securePort": $securePort, "cacheDir": $cacheDir, "webroot": $webroot, "presetDir": $presetDir}' \
+> ${CONFIG_DIR}/settings.json

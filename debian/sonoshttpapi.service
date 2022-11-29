@@ -4,11 +4,9 @@ After=network.target
 
 [Service]
 Type=simple
-#EnvironmentFile=/etc/sonoshttpapi.conf
 Environment="NODE_PATH=/opt/sonoshttpapi/node_modules"
-#Environment="SUPPRESS_NO_CONFIG_WARNING=1"
-#Environment="DEBUG=rest980:*"
 WorkingDirectory=/opt/sonoshttpapi
+ExecStartPre=/opt/sonoshttpapi/settingsgen
 ExecStart=/usr/bin/node /opt/sonoshttpapi/server.js
 SyslogIdentifier=sonoshttpapi
 Restart=on-failure

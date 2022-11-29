@@ -3,5 +3,10 @@ settings.js /opt/sonoshttpapi
 package.json /opt/sonoshttpapi
 /node_modules /opt/sonoshttpapi/
 /lib /opt/sonoshttpapi/
-/presets /opt/sonoshttpapi/
-/static /opt/sonoshttpapi/
+/static/docs /opt/sonoshttpapi/static/
+/static/index.html /opt/sonoshttpapi/static
+/static/missing_api_key.mp3 /opt/sonoshttpapi/static
+/static/sonos-icon.png /opt/sonoshttpapi/static
+/static/clips /var/opt/sonoshttpapi/
+/presets /etc/opt/sonoshttpapi/
+/debian/sonoshttpapi.conf /etc/opt/sonoshttpapi/

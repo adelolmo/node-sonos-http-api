@@ -1,19 +1,8 @@
 #!/usr/bin/make -f
 
+export DH_VERBOSE=1
 export DH_OPTIONS
 DESTDIR=debian/sonoshttpapi
-
-# Directories
-CONFIG_DIR=/etc/opt/sonoshttpapi
-VAR_DIR=/var/opt/sonoshttpapi
-
-# Service config
-IP=0.0.0.0
-PORT=5005
-SECURE_PORT=5006
-CACHE_DIR=$(VAR_DIR)/cache
-WEBROOT_DIR=/opt/sonoshttpapi/static
-PRESET_DIR=$(CONFIG_DIR)/preset
 
 %:
 	dh $@
@@ -24,29 +13,6 @@ build:
 override_dh_install:
 	dh_install
 
-	# Read setting.json from /etc dir
-	sed -i "s|__dirname, 'settings.json'|'$(CONFIG_DIR)', 'settings.json'|g" \
-	$(DESTDIR)/opt/sonoshttpapi/settings.js
-
-	# Use TTS directory in /var
-	sed -i "s|settings.webroot + '/tts/'|'$(VAR_DIR)/tts/'|g" \
-	$(DESTDIR)/opt/sonoshttpapi/settings.js
-	sed -i "s|settings.webroot, 'tts'|'$(VAR_DIR)/tts/'|g;s|globalSettings.webroot, 'tts'|'$(VAR_DIR)/tts/'|g" \
-	$(DESTDIR)/opt/sonoshttpapi/lib/tts-providers/*.js
-	sed -i "s|settings.webroot, 'tts'|'$(VAR_DIR)/tts/'|g" \
-	$(DESTDIR)/opt/sonoshttpapi/lib/tts-providers/default/*.js
-
-	# Generate settings.json
-	jq --null-input \
-	--arg ip "$(IP)" \
-	--arg port $(PORT) \
-	--arg securePort $(SECURE_PORT) \
-	--arg cacheDir "$(CACHE_DIR)" \
-	--arg webroot "$(WEBROOT_DIR)" \
-	--arg presetDir "$(PRESET_DIR)" \
-	'{"ip": $$ip, "port": $$port, "securePort": $$securePort, "cacheDir": $$cacheDir, "webroot": $$webroot, "presetDir": $$presetDir}' \
-	> $(DESTDIR)$(CONFIG_DIR)/settings.json
-
-	# Move clips directory to /var
-	mv $(DESTDIR)$(WEBROOT_DIR)/clips $(DESTDIR)$(VAR_DIR)
+	# Grant execution permissions to setting.json generation
+	install -Dm755 debian/settingsgen $(DESTDIR)/opt/sonoshttpapi/
 

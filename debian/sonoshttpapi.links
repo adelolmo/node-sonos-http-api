@@ -1,2 +1,3 @@
 /var/opt/sonoshttpapi/tts/ /opt/sonoshttpapi/static/tts
 /var/opt/sonoshttpapi/clips/ /opt/sonoshttpapi/static/clips
+/etc/opt/sonoshttpapi/settings.json /opt/sonoshttpapi/settings.json

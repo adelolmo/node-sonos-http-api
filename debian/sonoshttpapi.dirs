@@ -1,4 +1,3 @@
 /opt/sonoshttpapi
-/etc/opt/sonoshttpapi
-/etc/opt/sonoshttpapi/preset
 /var/opt/sonoshttpapi
+/etc/opt/sonoshttpapi/presets/
