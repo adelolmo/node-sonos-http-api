@@ -2,6 +2,14 @@
 
 . /etc/opt/sonoshttpapi/sonoshttpapi.conf
 
+# Directories
+CONFIG_DIR=/etc/opt/sonoshttpapi
+VAR_DIR=/var/opt/sonoshttpapi
+
+CACHE_DIR=${VAR_DIR}/cache
+WEBROOT_DIR=/opt/sonoshttpapi/static
+PRESET_DIR=${CONFIG_DIR}/presets
+
 # Generate settings.json
 jq --null-input \
 --arg ip "${IP}" \
@@ -10,5 +18,5 @@ jq --null-input \
 --arg cacheDir "${CACHE_DIR}" \
 --arg webroot "${WEBROOT_DIR}" \
 --arg presetDir "${PRESET_DIR}" \
-'{"ip": $ip, "port": $port, "securePort": $securePort, "cacheDir": $cacheDir, "webroot": $webroot, "presetDir": $presetDir}' \
+'{"ip": $ip, "port": $port, "securePort": $securePort, "cacheDir": $cacheDir, "webroot": $webroot, "presetDir": $presetDir, "disableIpDiscovery": true}' \
 > ${CONFIG_DIR}/settings.json
