@@ -1,3 +1,19 @@
+sonoshttpapi (1.6.9~ado1) unstable; urgency=medium
+
+  [ ashenshugarRET ]
+  * Update BBC Sounds Station references
+
+  [ Tim Otto ]
+  * Add HTTP event source endpoint
+  * refactoring
+  * explain /events endpoint
+
+  [ Luke Karrys ]
+  * add apple music playlist support
+  * fix: use correct variable for shuffle response
+
+ -- Andoni del Olmo <andoni.delolmo@gmail.com>  Wed, 17 May 2023 19:59:25 +0200
+
 sonoshttpapi (1.4.3~ado4) unstable; urgency=medium
 
   * fix quoted boolean in settings.json
