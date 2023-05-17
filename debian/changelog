@@ -1,3 +1,15 @@
+sonoshttpapi (1.4.3~ado4) unstable; urgency=medium
+
+  * fix quoted boolean in settings.json
+
+ -- Andoni del Olmo <andoni.delolmo@gmail.com>  Wed, 17 May 2023 16:47:02 +0200
+
+sonoshttpapi (1.4.3~ado3) unstable; urgency=medium
+
+  * make DISABLE_IP_DISCOVERY configurable with default to false
+
+ -- Andoni del Olmo <andoni.delolmo@gmail.com>  Wed, 17 May 2023 15:18:01 +0200
+
 sonoshttpapi (1.4.3~ado2) unstable; urgency=medium
 
   * document how to build the debian package

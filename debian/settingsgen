@@ -18,6 +18,6 @@ jq --null-input \
 --arg cacheDir "${CACHE_DIR}" \
 --arg webroot "${WEBROOT_DIR}" \
 --arg presetDir "${PRESET_DIR}" \
---arg disableIpDiscovery "${DISABLE_IP_DISCOVERY}" \
+--argjson disableIpDiscovery "${DISABLE_IP_DISCOVERY}" \
 '{"ip": $ip, "port": $port, "securePort": $securePort, "cacheDir": $cacheDir, "webroot": $webroot, "presetDir": $presetDir, "disableIpDiscovery": $disableIpDiscovery}' \
 > ${CONFIG_DIR}/settings.json
